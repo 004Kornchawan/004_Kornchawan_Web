@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>ฟอร์มลงทะเบียนศิษย์เก่า IT + IS</title>
+</head>
+<body>
+  <div class="container">
+    <h2>ฟอร์มลงทะเบียนศิษย์เก่า IT + IS</h2>
+    <form id="registrationForm" enctype="multipart/form-data">
+      <!-- ข้อมูลส่วนตัว -->
+      <div class="form-group">
+        <label for="fullName">ชื่อ-สกุล:</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <br />
+
+      <div class="form-group">
+        <label for="studentID">รหัสนักศึกษา:</label>
+        <input type="text" id="studentID" name="studentID" required>
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label>เพศ:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">ชาย</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">หญิง</label>
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="admissionYear">ปีการศึกษาเข้าศึกษา:</label>
+        <input type="text" id="admissionYear" name="admissionYear" required>
+      </div>
+
+      <br />
+      <!-- ที่อยู่ -->
+      <div class="form-group">
+        <label for="address">ที่อยู่:</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+
+      <br />
+      <!-- ข้อมูลติดต่อ -->
+      <div class="form-group">
+        <label for="email">อีเมลล์:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <br />
+      <div class="form-group">
+        <label for="phone">เบอร์โทรติดต่อ:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <br />
+      <!-- ข้อมูลการศึกษา -->
+      <div class="form-group">
+        <label>ชื่อหลักสูตร:</label>
+        <select id="course" name="course" required>
+          <option value="IT">IT</option>
+          <option value="IS">IS</option>
+        </select>
+      </div>
+
+        <br />
+      <!-- ข้อมูลอาชีพปัจจุบัน -->
+      <div class="form-group">
+        <label for="currentOccupation">อาชีพปัจจุบัน:</label>
+        <input type="text" id="currentOccupation" name="currentOccupation" required>
+      </div>
+
+        <br />
+      <!-- สถานที่ทำงาน -->
+      <div class="form-group">
+        <label for="workplace">สถานที่ทำงาน:</label>
+        <input type="text" id="workplace" name="workplace" required>
+      </div>
+
+      <br />
+      <!-- ประเภทงาน -->
+      <div class="form-group">
+        <label for="jobType">ประเภทงาน:</label>
+        <select id="jobType" name="jobType" required>
+          <option value="Web Developer">Web Developer</option>
+          <option value="System Analyst">System Analyst</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+        </select>
+      </div>
+
+      <br />
+      <!-- Upload รูป -->
+      <div class="form-group">
+        <label for="photo">Upload รูปถ่ายตนเอง:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+      </div>
+
+      <br />
+      <!-- ปุ่มส่งข้อมูล -->
+      <div class="form-group">
+        <button type="submit">ลงทะเบียน</button>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
