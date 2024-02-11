@@ -1,0 +1,40 @@
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show
+{
+  color: #ffffff;
+  }
+  
+.container-fluid{
+    background-color: rgb(0, 0, 0);
+    margin-left:20%
+}
+.navbar{
+
+ padding-top: 0;
+ 
+}
+.container-fluid{
+    padding-left:20% ;
+  }
+.navbar.navbar.navbar.navbar.navbar
+{
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0rem;}
+.navbar-brand .img{
+    position: relative;
+    width: 5px;
+  }
+  .dow{
+    width: 50px;
+    position: relative;
+    left: 2rem;
+  }
+  .drop{
+    bottom: 0.1rem;
+    color: #ffffff;
+    position: relative;
+    right:  1rem;
+  }
+  .nav-item{
+    position: relative;
+    right:-3rem;
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handler</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .error-message {
+        color: red;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <button id="clickme">Click Me</button>
+
+    <form id="myForm" action="" onsubmit="return validateForm()">
+      <p>Username :</p>
+      <input type="text" id="username" />
+      <p id="errorUsername" class="error"></p>
+      <p>Password :</p>
+      <input type="password" id="password" />
+      <p id="errorPassword" class="error"></p>
+      <p id="passwordMessage" class="error-message"></p>
+      <input type="submit" value="OK" />
+    </form>
+
+    <script>
+      function validateForm() {
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        let errorUsername = document.getElementById('errorUsername');
+        let errorPassword = document.getElementById('errorPassword');
+        let passwordMessage = document.getElementById('passwordMessage');
+        let errorMessage = '';
+
+        let checkusername = username.length >= 8; // ตรวจสอบว่า username มีความยาวมากกว่าหรือเท่ากับ 8 หรือไม่
+        let checkpassword = password.length >= 8; // ตรวจสอบว่า password มีความยาวมากกว่าหรือเท่ากับ 8 หรือไม่
+
+        if (!checkusername) { // ถ้า username มีความยาวน้อยกว่า 8
+          errorMessage += 'Username must be at least 8 characters long.<br>'; // เพิ่มข้อความผิดพลาด
+        }
+
+        if (!checkpassword) { // ถ้า password มีความยาวน้อยกว่า 8
+          errorMessage += 'Password must be at least 8 characters long.<br>'; // เพิ่มข้อความผิดพลาด
+        }
+
+        if (errorMessage !== '') { // ถ้ามีข้อความผิดพลาด
+          errorUsername.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
+          errorPassword.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
+          passwordMessage.innerHTML = errorMessage; // แสดงข้อความผิดพลาด
+          return false; // ไม่ให้ Form Submit
+        } else {
+          errorUsername.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
+          errorPassword.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
+          passwordMessage.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
+          return true; // ให้ Form Submit
+        }
+      }
+
+      document.querySelector("#clickme").onclick = function () {
+        document.querySelector("h1").innerHTML = "Good Bye";
+      };
+    </script>
+  </body>
+</html>
