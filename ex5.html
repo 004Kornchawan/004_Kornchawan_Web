@@ -38,27 +38,27 @@
         let passwordMessage = document.getElementById('passwordMessage');
         let errorMessage = '';
 
-        let checkusername = username.length >= 8; // ตรวจสอบว่า username มีความยาวมากกว่าหรือเท่ากับ 8 หรือไม่
-        let checkpassword = password.length >= 8; // ตรวจสอบว่า password มีความยาวมากกว่าหรือเท่ากับ 8 หรือไม่
+        let checkusername = username.length >= 8; 
+        let checkpassword = password.length >= 8; 
 
-        if (!checkusername) { // ถ้า username มีความยาวน้อยกว่า 8
-          errorMessage += 'Username must be at least 8 characters long.<br>'; // เพิ่มข้อความผิดพลาด
+        if (!checkusername) { 
+          errorMessage += 'Username must be at least 8 characters long.<br>'; 
         }
 
-        if (!checkpassword) { // ถ้า password มีความยาวน้อยกว่า 8
-          errorMessage += 'Password must be at least 8 characters long.<br>'; // เพิ่มข้อความผิดพลาด
+        if (!checkpassword) { 
+          errorMessage += 'Password must be at least 8 characters long.<br>'; 
         }
 
-        if (errorMessage !== '') { // ถ้ามีข้อความผิดพลาด
-          errorUsername.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
-          errorPassword.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
-          passwordMessage.innerHTML = errorMessage; // แสดงข้อความผิดพลาด
-          return false; // ไม่ให้ Form Submit
+        if (errorMessage !== '') { 
+          errorUsername.innerHTML = ''; 
+          errorPassword.innerHTML = ''; 
+          passwordMessage.innerHTML = errorMessage;
+          return false; 
         } else {
-          errorUsername.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
-          errorPassword.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
-          passwordMessage.innerHTML = ''; // ล้างข้อความผิดพลาดเก่า
-          return true; // ให้ Form Submit
+          errorUsername.innerHTML = ''; 
+          errorPassword.innerHTML = ''; 
+          passwordMessage.innerHTML = '';
+          return true; 
         }
       }
 
