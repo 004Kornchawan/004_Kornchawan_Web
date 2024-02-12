@@ -1,81 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Event Handler</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 50%;
+      font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
+      background-image: url("https://images6.alphacoders.com/648/648462.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .error {
-      color: red;
+    .container {
+      display: flex;
+      width: 1000px;
+      background-color: rgba(1, 96, 64, 0.253);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
-    .error-message {
-      color: red;
-      font-size: 0.8em;
+    .avatar-container {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .form-container {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .avatar {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .login-form {
+      padding: 120px;
+      border-radius: 10px;
+      background-color: #ffffff1e;
+    }
+
+    h1 {
+      width: 110%;
+      text-align: center;
+      margin-top: 0;  
+      margin-bottom: 20px;
+    }
+
+    .username-input,
+    .password-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc9f;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .login-button {
+      width: 110%;
+      padding: 10px;
+      background-color: #00636a;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      
+    }
+
+    a {
+      width: 110%;
+      text-align: center;
+      margin-top: 10px;
+      color: #ffffff;
+      display: block;
     }
   </style>
-  
 </head>
 <body>
-  <h1>Hello</h1>
-  <button id="clickme">Click Me</button>
-
-  <form id="myForm" action="" onsubmit="return validateForm()">
-    <p>Username :</p>
-    <input type="text" id="username" />
-    <p id="errorUsername" class="error"></p>
-    <p>Password :</p>
-    <input type="password" id="password" />
-    <p id="errorPassword" class="error"></p>
-    <p id="passwordMessage" class="error-message"></p>
-    <input type="submit" value="OK" />
-  </form>
+  <div class="container">
+    <div class="avatar-container">
+      <img class="avatar" src="https://routemobile.com/wp-content/uploads/2021/06/Login-illustration.svg" alt="Avatar">
+    </div>
+    <div class="form-container">
+      <div class="login-form">
+        <h1>LOGIN</h1>
+        <form id="loginForm" onsubmit="return validateForm()">
+          <input type="text" placeholder="Username" class="username-input" id="username">
+          <div id="errorUsername" style="color: red; margin-bottom: 10px;"></div>
+          <input type="password" placeholder="Password" class="password-input" id="password">
+          <div id="errorPassword" style="color: red; margin-bottom: 10px;"></div>
+          <button type="submit" class="login-button">Login</button>
+          <a href="#">Forgot your password?</a>
+        </form>
+        <div id="errorMessage" style="color: red; margin-top: 10px;"></div>
+      </div>
+    </div>  
+  </div>
 
   <script>
-    function validateForm() {
-      let username = document.getElementById('username').value;
-      let password = document.getElementById('password').value;
-      let errorUsername = document.getElementById('errorUsername');
-      let errorPassword = document.getElementById('errorPassword');
-      let passwordMessage = document.getElementById('passwordMessage');
-      let errorMessage = '';
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector("form").onsubmit = function () {
+        let username = document.querySelector("#username").value;
+        let password = document.querySelector("#password").value;
 
-      let checkusername = username.length >= 8; 
-      let checkpassword = password.length >= 8; 
+        let checkusername = username.length >= 8;
+        if (!checkusername) {
+          document.querySelector("#errorUsername").textContent = "Username must be at least 8 characters.";
+        } else {
+          document.querySelector("#errorUsername").textContent = "";
+        }
 
-      if (!checkusername) { 
-        errorMessage += 'Username must be at least 8 characters long.<br>'; 
-      }
+        let checkpassword = password.length >= 8;
+        if (!checkpassword) {
+          document.querySelector("#errorPassword").textContent = "Password must be at least 8 characters.";
+        } else {
+          document.querySelector("#errorPassword").textContent = "";
+        }
 
-      if (!checkpassword) { 
-        errorMessage += 'Password must be at least 8 characters long.<br>'; 
-      }
+        return checkusername && checkpassword;
+      };
 
-      if (errorMessage !== '') { 
-        errorUsername.innerHTML = ''; 
-        errorPassword.innerHTML = ''; 
-        passwordMessage.innerHTML = errorMessage;
-        return false; 
-      } else {
-        errorUsername.innerHTML = ''; 
-        errorPassword.innerHTML = ''; 
-        passwordMessage.innerHTML = '';
-        return true; 
-      }
-    }
+      document.getElementById("forgotPassword").addEventListener("click", function () {
+        alert("Forgot Password clicked");
+        
+      });
 
-    document.querySelector("#clickme").onclick = function () {
-      document.querySelector("h1").innerHTML = "Good Bye";
-    };
+      document.getElementById("register").addEventListener("click", function () {
+        alert("Register clicked");
+        
+      });
+    });
   </script>
 </body>
 </html>
